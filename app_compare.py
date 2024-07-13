@@ -1,7 +1,6 @@
 import csv
 
 def read_csv(filename, encoding='utf-8'):
-    """ Read a CSV file and return a set of filenames """
     filenames = set()
     with open(filename, 'r', newline='', encoding=encoding) as file:
         reader = csv.reader(file)
@@ -11,13 +10,11 @@ def read_csv(filename, encoding='utf-8'):
     return filenames
 
 def write_csv(filename, data, encoding='utf-8'):
-    """ Write a list of data to a CSV file """
     with open(filename, 'w', newline='', encoding=encoding) as file:
         writer = csv.writer(file)
         writer.writerows(data)
 
 def find_not_in_google(local_file, google_file, not_in_google_file, is_in_google_file):
-    """ Compare local.csv to google.csv and write the differences to respective CSV files """
     local_filenames = read_csv(local_file)
     google_filenames = read_csv(google_file)
 
